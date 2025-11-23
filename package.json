@@ -18,8 +18,12 @@
     "appId": "com.marc.pwamkr",
     "win": {
       "target": "nsis",
-      "deleteAppDataOnUninstall": "true",
       "icon": "icon.ico"
+    },
+    "nsis": {
+      "deleteAppDataOnUninstall": true,
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
     },
     "directories": {
       "output": "dist"
@@ -33,8 +37,5 @@
       "repo": "el-meu-pwa-pro",
       "releaseType": "release"
     }
-  },
-  "dependencies": {
-    "electron-context-menu": "^3.6.1"
   }
 }
