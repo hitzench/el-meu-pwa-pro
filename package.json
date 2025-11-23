@@ -1,12 +1,12 @@
 {
   "name": "pwa-maker",
   "productName": "PWA MAKER",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "El meu launcher de PWAs personalitzat",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "npm version patch --no-git-tag-version && electron-builder"
+    "dist": "npm version patch --no-git-tag-version && electron-builder --publish always"
   },
   "author": "Marc",
   "license": "ISC",
@@ -25,9 +25,11 @@
     },
     "extraResources": [
       "extensions/**"
-    ]
-  },
-  "dependencies": {
-    "electron-context-menu": "^4.1.1"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "hitzench",
+      "repo": "el-meu-pwa-pro"
+    }
   }
 }
