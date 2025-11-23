@@ -1,7 +1,7 @@
 {
   "name": "pwa-maker",
   "productName": "PWA MAKER",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "El meu launcher de PWAs personalitzat",
   "main": "main.js",
   "scripts": {
@@ -18,6 +18,7 @@
     "appId": "com.marc.pwamkr",
     "win": {
       "target": "nsis",
+      "deleteAppDataOnUninstall": "true",
       "icon": "icon.ico"
     },
     "directories": {
@@ -29,7 +30,11 @@
     "publish": {
       "provider": "github",
       "owner": "hitzench",
-      "repo": "el-meu-pwa-pro"
+      "repo": "el-meu-pwa-pro",
+      "releaseType": "release"
     }
+  },
+  "dependencies": {
+    "electron-context-menu": "^3.6.1"
   }
 }
