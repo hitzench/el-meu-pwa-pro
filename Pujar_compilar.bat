@@ -1,33 +1,32 @@
 @echo off
 echo --- 1. Arreglant permisos i Identitat... ---
 git config --global --add safe.directory D:/Projectes/el-meu-pwa-pro
-:: AQUI POSA EL TEU CORREU REAL DE GITHUB SI VOLS (o deixa aquest fals, funcionara igual)
 git config --global user.email "marcgutierreza@gmail.com"
 git config --global user.name "hitzench"
 
 echo.
-echo --- 2. Connectant amb GitHub... ---
-:: Esborrem la connexio vella per si de cas i la posem de nou
+echo --- 2. Compilant i Pujant Versio (Fent la magia)... ---
+:: Això crea l'EXE i canvia el package.json (ex: 1.0.0 -> 1.0.1)
+call npm run dist
+
+echo.
+echo --- 3. Connectant amb GitHub... ---
 git remote remove origin
 git remote add origin https://github.com/hitzench/el-meu-pwa-pro.git
 git branch -M main
 
 echo.
-echo --- 3. Preparant arxius... ---
+echo --- 4. Preparant arxius (amb la NOVA versio)... ---
 git add .
 
 echo.
-echo --- 4. Guardant canvis... ---
-git commit -m "Actualització Automàtica des del BAT 🚀"
+echo --- 5. Guardant canvis... ---
+git commit -m "Actualització Automàtica (EXE creat) 🚀"
 
 echo.
-echo --- 5. Pujant al GitHub... ---
-:: Fem servir --force per assegurar que la teva versió local mana
+echo --- 6. Pujant al GitHub... ---
 git push -u origin main --force
 
 echo.
-echo --- 6. Compilant... ---
-npm run dist
-
-echo.
-echo --- ✅ ARA SI! TOT FET ---
+echo --- ✅ ARA SI! VERSIO NOVA PUJADA I SINCRONITZADA ---
+pause

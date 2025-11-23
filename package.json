@@ -1,7 +1,7 @@
 {
   "name": "pwa-maker",
   "productName": "PWA MAKER",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "El meu launcher de PWAs personalitzat",
   "main": "main.js",
   "scripts": {
