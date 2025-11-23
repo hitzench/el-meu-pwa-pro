@@ -1,2 +1,1 @@
-.\Pujar_GitHub.bat
-.\Compilar.bat
+.\Pujar_GitHub.bat &&  .\Compilar.bat
