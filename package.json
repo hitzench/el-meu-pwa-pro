@@ -1,7 +1,7 @@
 {
-  "name": "pwa-maker",
+  "name": "el-meu-pwa-pro",
   "productName": "PWA MAKER",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "El meu launcher de PWAs personalitzat",
   "main": "main.js",
   "scripts": {
@@ -10,6 +10,9 @@
   },
   "author": "Marc",
   "license": "ISC",
+  "dependencies": {
+    "electron-context-menu": "^3.6.1"
+  },
   "devDependencies": {
     "electron": "^38.3.0",
     "electron-builder": "^24.9.1"
