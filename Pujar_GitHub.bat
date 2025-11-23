@@ -27,4 +27,3 @@ git push -u origin main --force
 
 echo.
 echo --- ✅ ARA SI! TOT FET ---
-pause
