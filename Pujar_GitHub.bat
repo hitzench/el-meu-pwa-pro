@@ -2,7 +2,7 @@
 echo --- 1. Arreglant permisos i Identitat... ---
 git config --global --add safe.directory D:/Projectes/el-meu-pwa-pro
 :: AQUI POSA EL TEU CORREU REAL DE GITHUB SI VOLS (o deixa aquest fals, funcionara igual)
-git config --global user.email "marc@exemple.com"
+git config --global user.email "marcgutierreza@gmail.com"
 git config --global user.name "hitzench"
 
 echo.
