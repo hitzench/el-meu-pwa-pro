@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, shell, session } = require('electron');
+const { app, BrowserWindow, ipcMain, shell, session, dialog } = require('electron'); // He afegit 'dialog' al final
 const path = require('path');
 const fs = require('fs');
 
@@ -133,8 +133,35 @@ app.whenReady().then(async () => {
           console.error("❌ Error carregant uBlock:", err);
       }
   } else {
-      console.log("⚠️ No s'ha trobat uBlock a:", extensionPath);
+      console.log("⚠️ No s'ha trobat la carpeta 'extensions/ublock'. S'inicia sense extensions.");
   }
+
+  // --- 🆕 NOU BLOC: DETECTOR D'ACTUALITZACIONS ---
+  // Això comprova si al GitHub hi ha una versió més nova
+  fetch('https://raw.githubusercontent.com/hitzench/el-meu-pwa-pro/main/package.json')
+    .then(res => res.json())
+    .then(data => {
+        const localVersion = app.getVersion();
+        const remoteVersion = data.version;
+        
+        // Si la versió del núvol és diferent i no és la mateixa que tenim...
+        if (remoteVersion !== localVersion && remoteVersion > localVersion) {
+            dialog.showMessageBox({
+                type: 'info',
+                title: 'Nova Actualització Disponible! 🚀',
+                message: `Ei Marc! Hi ha una nova versió (${remoteVersion}).`,
+                detail: `Tu tens la ${localVersion}. Vols anar a GitHub a descarregar-la?`,
+                buttons: ['Sí, porta-m\'hi', 'Més tard'],
+                defaultId: 0
+            }).then(selection => {
+                if (selection.response === 0) {
+                    shell.openExternal('https://github.com/hitzench/el-meu-pwa-pro');
+                }
+            });
+        }
+    })
+    .catch(err => console.log('Error buscant updates (no tens internet?):', err));
+  // ------------------------------------------------
 
   // 2. Iniciem el Launcher
   createLauncherWindow();
