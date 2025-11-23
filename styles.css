@@ -1,0 +1,92 @@
+/* --- 0. RESET --- */
+body {
+    margin: 0;
+    overflow: hidden; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* --- 1. CAPÇALERA --- */
+#titlebar {
+    position: fixed; 
+    top: 0; left: 0; right: 0;
+    z-index: 9999; 
+    display: flex;
+    align-items: center;
+    height: 30px; 
+    padding: 0 10px; 
+    background-color: transparent; 
+    pointer-events: none; /* CLAU: Deixa passar els clics a través de la barra buida */
+}
+
+.app-title {
+    -webkit-app-region: drag;
+    flex-grow: 1;
+    padding-left: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+    pointer-events: auto; /* Reactiva els clics pel títol (per arrossegar) */
+}
+
+/* --- 2. BOTONS --- */
+#window-controls {
+    display: flex;
+    gap: 8px; 
+    -webkit-app-region: no-drag;
+    padding-right: 5px;
+    pointer-events: auto; /* Reactiva els clics pels botons */
+}
+
+.control-btn {
+    width: 12px; height: 12px;
+    border: none; border-radius: 50%; 
+    padding: 0; margin: 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative; 
+    font-size: 0; 
+}
+.control-btn:hover { transform: scale(1.1); }
+
+#close-btn { background-color: #ff5f57; }
+#minimize-btn { background-color: #ffbd2e; }
+#maximize-btn { background-color: #27c93f; }
+
+/* Icones hover */
+.control-btn::before {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9px; font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0; transition: opacity 0.2s;
+}
+#close-btn::before { content: '\00D7'; }
+#minimize-btn::before { content: '\2212'; }
+#maximize-btn::before { content: '+'; }
+#titlebar:hover .control-btn::before { opacity: 1; }
+
+/* --- 3. WEBVIEW --- */
+#content-region {
+    flex-grow: 1;
+    padding-top: 30px; /* Espai per la barra */
+    box-sizing: border-box; 
+    position: relative;
+    overflow: hidden;
+}
+
+#content-region webview {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex; /* IMPORTANT: Flex, no inline-flex */
+}

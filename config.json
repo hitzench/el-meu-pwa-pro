@@ -1,0 +1,6 @@
+{
+    "appTitle": "Electron PWA Creator",
+    "targetURL": "https://electronjs.org/docs",
+    "startWidth": 1200,
+    "startHeight": 800
+}

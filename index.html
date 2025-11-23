@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wes App</title>
+    <meta charset="UTF-8">
+    <!-- Evita l'avís vermell de seguretat -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;">
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header id="titlebar">
+        <div class="app-title">Carregant...</div>
+        <div id="window-controls">
+            <button id="minimize-btn" class="control-btn" title="Minimitzar"></button> 
+            <button id="maximize-btn" class="control-btn" title="Maximitzar"></button>
+            <button id="close-btn" class="control-btn" title="Tancar"></button>
+        </div>
+    </header>
+
+    <main id="content-region">
+        <webview id="main-webview" src="about:blank"></webview> 
+    </main>
+    <script src="renderer.js"></script>
+</body>
+</html>

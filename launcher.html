@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PWA Launcher</title>
+    <!-- AFEGIM AQUESTA LÍNIA CLAU -->
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;">
+    <link rel="stylesheet" href="styles-launcher.css"> 
+</head>
+<body>
+    <!-- L'ORDRE DINS DEL HEADER ÉS LA CLAU -->
+    <header id="titlebar">
+        <!-- 1r Element: El TÍTOL (Aquest empeny la resta) -->
+        <div class="app-title">La Meva Fàbrica de PWAs</div>
+
+        <!-- 2n Element: Els BOTONS (Aquests són empesos a la dreta) -->
+        <div id="window-controls">
+            <button id="minimize-btn" class="control-btn" title="Minimitzar"></button> 
+            <button id="maximize-btn" class="control-btn" title="Maximitzar"></button>
+            <button id="close-btn" class="control-btn" title="Tancar"></button>
+        </div>
+    </header>
+
+    <main id="launcher-main">
+        <h1>Les Teves PWAs</h1>
+        
+        <form id="add-app-form">
+            <input type="text" id="app-title" placeholder="Títol (Ex: YouTube Privat)" required>
+            <input type="url" id="app-url" placeholder="URL (Ex: https://...)" required>
+            <button type="submit">Afegir PWA</button>
+        </form>
+
+        <ul id="pwa-list">
+            <!-- Llista carregada per launcher.js -->
+        </ul>
+    </main>
+
+    <script src="launcher.js"></script>
+</body>
+</html>
